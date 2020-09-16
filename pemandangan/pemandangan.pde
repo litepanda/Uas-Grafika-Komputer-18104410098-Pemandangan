@@ -63,6 +63,16 @@ void airterjun(){
     translate(360, 390);
     ellipse(56, 46, 90, 90);
   popMatrix();
+   //bulir kecil
+    
+  for (int i = 280; i < 350; i++) {
+    float r = random(400);
+    
+     pushMatrix();
+      translate(350-i+r, 700-i-50);
+      ellipse(56, 46, 5, 5);
+     popMatrix();
+  }
   stroke(0);
   fill(#A8DAF5);
   rect(0, 448, 600, 600);
