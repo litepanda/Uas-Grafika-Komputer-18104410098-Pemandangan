@@ -1,23 +1,25 @@
+float awal=0;
+float air, gelombang;
+float kecepatan=1;
 void setup(){
   size(600,700);
   background(#3699FF);
+  air = height/2;
 }
 void airterjun(){
   fill(#A8DAF5);
-  rect(100, 30, 400, 100);
-  rect(100, 100, 400, 400);
+  rect(90, 0, 450, 100);
+  rect(90, 100, 450, 400);
   stroke(#FFFFFF);
-  for(int i = 1; i<400; i=i+60){
-    line(120+i,30,120+i,80);
-    line(120+i+10,30,120+i+10,50);
-    line(120+i+20,30,120+i+20,100);
-    line(90+i,100,105+i,430);
-    line(90+i+10,150,100+i+10,300);
-    line(90+i+20,100,100+i+20,500);
-    line(90+i+30,120,100+i+30,400);
-    line(90+i+40,100,100+i+40,450);
-    line(90+i+50,100,100+i+50,550);
-    line(90+i+60,120,100+i+60,400);
+  for(int i = 1; i<400; i=i+50){
+    line(90+i,550-air,90+i,950-air);
+    line(110+i,150-air,110+i,850-air);
+    line(130+i,150-air,130+i, 950-air);
+    line(150+i,150-air,150+i,650-air);
+    air = air - 0.5;
+    if (air < 0) { 
+      air = height; 
+    }
   }
   
   
