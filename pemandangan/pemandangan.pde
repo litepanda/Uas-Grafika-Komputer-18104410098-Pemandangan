@@ -213,30 +213,45 @@ void batuan(){
   
 
 }
+void batuan_atas(){
+   fill(#9BA7AD);
+  beginShape();
+  curveVertex(0, 80);
+  curveVertex(0, 80);
+  curveVertex(0, 20);
+  curveVertex(50, 0);
+  curveVertex(100, 0);
+  curveVertex(160, 40);
+  curveVertex(200, 40);
+  curveVertex(220, 60);
+  curveVertex(250, 80);
+  curveVertex(260, 85);
+  curveVertex(290, 100);
+  curveVertex(0, 110);
+  curveVertex(0, 110);
+  endShape();
+}
 
 void kolam(){
   noFill();
   stroke(#FFFFFF);
-  pushMatrix();
-    translate(width/2, 410);
-    ellipse(56, 46, 400, 50);
-  popMatrix();
-  pushMatrix();
-    translate(width/2, 450);
-    ellipse(56, 46, 500, 50);
-  popMatrix();
-  pushMatrix();
-    translate(width/2, 420);
-    ellipse(56, 46, 300, 50);
-  popMatrix();
-  pushMatrix();
-    translate(100, 500);
-    ellipse(56, 46, 800, 80);
-  popMatrix();
-   pushMatrix();
-    translate(100, 600);
-    ellipse(56, 46, 800, 80);
-  popMatrix();
+   
+   int y = 0;
+    while (y < 800) {
+      pushMatrix();
+        translate(100+gelombang, 650-gelombang);
+        ellipse(56, 46+y, 800, 80);
+       popMatrix();
+      y = y + 90;
+    } 
+   
+    gelombang = gelombang - 1;
+    if (gelombang < 0) { 
+      gelombang = 200; 
+    }
+ 
+   
+  
 }
 void pohon(){
   fill(#8E7043);
@@ -316,13 +331,20 @@ void awan(){
 void draw(){
   
   airterjun();
-  
+  batuan_atas();
   batuan();
+  pushMatrix();
+    scale(-1, 1);
+    translate(-width-100, 0);
+    batuan_atas();
+    batuan();
+  popMatrix();
   pushMatrix();
     scale(-1, 1);
     translate(-width, 140);
     batuan();
   popMatrix();
+  
    awan();
   
   
