@@ -1,5 +1,5 @@
 float awal=0;
-float air, gelombang;
+float air, gelombang, arus;
 float kecepatan=1;
 void setup(){
   size(600,700);
@@ -9,6 +9,39 @@ void setup(){
 void airterjun(){
   fill(#A8DAF5);
   rect(90, 0, 450, 100);
+  fill(#FFFFFF);
+  stroke(#FFFFFF);
+  pushMatrix();
+    translate(width/2, 60);
+    ellipse(56, 46, 45, 45);
+   popMatrix();
+   pushMatrix();
+    translate(250, 50);
+    ellipse(56, 46, 30, 30);
+   popMatrix();
+   pushMatrix();
+    translate(width/2.6, 50);
+    ellipse(56, 46, 30, 30);
+   popMatrix();
+   pushMatrix();
+    translate(200, 50);
+    ellipse(56, 46, 70, 70);
+  popMatrix();
+  pushMatrix();
+    translate(280, 50);
+    ellipse(56, 46, 30, 30);
+  popMatrix();
+  pushMatrix();
+    translate(320, 50);
+    ellipse(56, 46, 60, 60);
+  popMatrix();
+  pushMatrix();
+    translate(350, 50);
+    ellipse(56, 46, 40, 40);
+  popMatrix();
+  
+  fill(#A8DAF5);
+  stroke(0);
   rect(90, 100, 450, 400);
   stroke(#FFFFFF);
   for(int i = 1; i<400; i=i+50){
@@ -66,20 +99,29 @@ void airterjun(){
     ellipse(56, 46, 90, 90);
   popMatrix();
    //bulir kecil
-    
-  for (int i = 280; i < 350; i++) {
-    float r = random(400);
-    
-     pushMatrix();
-      translate(350-i+r, 700-i-50);
-      ellipse(56, 46, 5, 5);
-     popMatrix();
-  }
+  bulir();
   stroke(0);
   fill(#A8DAF5);
   rect(0, 448, 600, 600);
   kolam();
   stroke(0);
+}
+
+void bulir(){
+   for (int i = 280; i < 350; i++) {
+    float r = random(300);
+     pushMatrix();
+      translate(420-i+r, 365-i-30);
+      ellipse(56, 46, 5, 5);
+     popMatrix();
+  }
+  for (int i = 280; i < 350; i++) {
+    float r = random(400);
+     pushMatrix();
+      translate(350-i+r, 700-i-50);
+      ellipse(56, 46, 5, 5);
+     popMatrix();
+  }
 }
 void batuan(){
   fill(#9BA7AD);
@@ -235,20 +277,53 @@ void batuan_atas(){
 void kolam(){
   noFill();
   stroke(#FFFFFF);
+   //int y = 0;
+   // while (y < 800) {
+   //   pushMatrix();
+   //     translate(100+gelombang, 650-gelombang);
+   //     ellipse(56, 46+y, 800, 80);
+   //    popMatrix();
+   //   y = y + 90;
+   // } 
    
+   // gelombang = gelombang - 1;
+   // if (gelombang < 0) { 
+   //   gelombang = 200; 
+   // }
+   //line(390,450,0,550);
+  // beginShape();
+  //  curveVertex(250, 450);
+  //  curveVertex(250, 450);
+  //  curveVertex(350, 480);
+  //  curveVertex(50, 550);
+  //  curveVertex(350, 680);
+  //  curveVertex(610, 700);
+  //  curveVertex(610, 700);
+  //endShape();
    int y = 0;
-    while (y < 800) {
-      pushMatrix();
-        translate(100+gelombang, 650-gelombang);
-        ellipse(56, 46+y, 800, 80);
-       popMatrix();
-      y = y + 90;
+    while (y < 300) {
+      beginShape();
+        curveVertex(250+y, 450);
+        curveVertex(250+y, 450);
+        curveVertex(350+y, 480);
+        curveVertex(50+y, 600);
+        curveVertex(610+y, 650-y);
+        curveVertex(610+y, 650-y);
+      endShape();
+       beginShape();
+        curveVertex(250-y, 450);
+        curveVertex(250-y, 450);
+        curveVertex(350-y, 480);
+        curveVertex(50-y, 600);
+        curveVertex(610-y, 650+y);
+        curveVertex(610-y, 650+y);
+      endShape();
+      
+      y = y + 50;
     } 
-   
-    gelombang = gelombang - 1;
-    if (gelombang < 0) { 
-      gelombang = 200; 
-    }
+    
+
+
  
    
   
@@ -346,6 +421,6 @@ void draw(){
   popMatrix();
   
    awan();
-  
+   
   
 }
