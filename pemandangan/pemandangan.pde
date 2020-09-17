@@ -306,17 +306,17 @@ void kolam(){
         curveVertex(250+y, 450);
         curveVertex(250+y, 450);
         curveVertex(350+y, 480);
-        curveVertex(50+y, 600);
-        curveVertex(610+y, 650-y);
-        curveVertex(610+y, 650-y);
+        curveVertex(50+y, 630);
+        curveVertex(610+y, 850-y);
+        curveVertex(610+y, 850-y);
       endShape();
        beginShape();
         curveVertex(250-y, 450);
         curveVertex(250-y, 450);
         curveVertex(350-y, 480);
-        curveVertex(50-y, 600);
-        curveVertex(610-y, 650+y);
-        curveVertex(610-y, 650+y);
+        curveVertex(50-y, 630);
+        curveVertex(610-y, 850+y);
+        curveVertex(610-y, 850+y);
       endShape();
       
       y = y + 50;
